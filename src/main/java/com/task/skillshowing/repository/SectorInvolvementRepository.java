@@ -1,12 +1,9 @@
 package com.task.skillshowing.repository;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.stereotype.Repository;
+import com.task.skillshowing.model.Sector;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class SectorInvolvementRepository {
 
-    @Autowired
-    private NamedParameterJdbcTemplate jdbcTemplate;
+public interface SectorInvolvementRepository extends JpaRepository<Sector, Long> {
+
 }
