@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 import SectorService from "../services/SectorService";
 
 const ListSectorComponent = () => {
@@ -17,12 +18,24 @@ const ListSectorComponent = () => {
     }, []);
 
     const [name, setName] = useState('')
+    const navigate = useNavigate();
+    const refreshPage = () => {
+        navigate(0);
+    }
     const saveSector = (e) => {
         e.preventDefault();
 
         const sector = {name}
 
-        console.log(sector);
+        SectorService.createSector(sector).then((response) => {
+            navigate('/sectors');
+            refreshPage();
+        }).catch(error => {
+            console.log(error)
+
+            navigate('/sectors');
+            refreshPage();
+        })
     }
 
 
@@ -47,10 +60,12 @@ const ListSectorComponent = () => {
                             </input>
                             <h2 className="text-center"> List of Sectors </h2>
                             <table className="table table-bordered table-striped">
-                                <thead>
-                                <th> Sectors</th>
-                                <th> Actions</th>
-                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td> Sectors</td>
+                                    <td> Actions</td>
+                                </tr>
+                                </tbody>
                                 <tbody>
                                 {
                                     sectors.map(
