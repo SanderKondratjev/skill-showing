@@ -1,6 +1,6 @@
-package com.task.skillshowing.sectorInvolvementController;
+package com.task.skillshowing.controller;
 
-import com.task.skillshowing.sectorInvolvementService.SectorInvolvementService;
+import com.task.skillshowing.service.SectorInvolvementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
