@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 import SectorService from "../services/SectorService";
 
 const ListSectorComponent = () => {
 
     const [sectors, setSectors] = useState([]);
+    const {id} = useParams();
 
     useEffect(() => {
 
@@ -38,14 +39,32 @@ const ListSectorComponent = () => {
         })
     }
 
+    useEffect(() => {
 
+        SectorService.getSectorById(id).then((response) =>{
+            setName(response.data.name)
+        }).catch(error => {
+            console.log(error)
+        })
+
+    }, []);
+    
+
+    const title = () => {
+
+        if (id) {
+            return <h5 className= "text-center"> Update sector</h5>
+        }
+            return <h5 className= "text-center"> Add sector</h5>
+    }
     return (
 
         <div className="container">
             <br/><br/>
             <div className="card">
-                <h5 className="text-center"> Please enter your name and pick the Sectors you are currently involved
-                    in.</h5>
+                {
+                    title()
+                }
                 <div className="card-body">
                     <form>
                         <div className="form-group mb-2">
@@ -72,6 +91,9 @@ const ListSectorComponent = () => {
                                         sector =>
                                             <tr key={sector.id}>
                                                 <td> {sector.name} </td>
+                                                <td>
+                                                    <Link className="btn btn-info" to={`/edit-sector/${sector.id}`} >Update</Link>
+                                                </td>
                                             </tr>
                                     )
                                 }

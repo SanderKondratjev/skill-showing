@@ -14,6 +14,8 @@ function App() {
                     <Route path="/" element={<ListSectorComponent />}></Route>
                     <Route path="/sectors" element={<ListSectorComponent />}></Route>
                     <Route path="*" element={<ListSectorComponent />}></Route>
+                    <Route path="/add-sector" element={<ListSectorComponent />}></Route>
+                    <Route path="/edit-sector/id" element={<ListSectorComponent />}></Route>
                 </Routes>
                 <FooterComponent />
             </BrowserRouter>

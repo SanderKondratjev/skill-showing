@@ -11,6 +11,10 @@ class SectorService{
     createSector(sector) {
         return axios.post(SECTOR_BASE_REST_API_URL, sector)
     }
+
+    getSectorById(sectorId){
+        return axios.get(SECTOR_BASE_REST_API_URL + '/' + sectorId);
+    }
 }
 
 export default new SectorService();
