@@ -67,10 +67,7 @@ const ListSectorComponent = () => {
     const [agree, setAgree] = useState(false);
 
     const checkboxHandler = () => {
-        // if agree === true, it will be set to false
-        // if agree === false, it will be set to true
         setAgree(!agree);
-        // Don't miss the exclamation mark
     }
     return (
 
