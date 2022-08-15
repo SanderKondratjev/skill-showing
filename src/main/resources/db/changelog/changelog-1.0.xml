@@ -1,0 +1,107 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2022-08-15 users" author="Sander Kondratjev">
+        <createTable tableName="users">
+            <column name="id" type="bigint" autoIncrement="true">-->
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="text"/>
+            <column name="accepted_terms" type="boolean"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2022-08-16 sectors" author="Sander Kondratjev">
+        <createTable tableName="sectors">
+            <column name="id" type="bigint" autoIncrement="true">-->
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="text"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2022-08-15 sectors" author="Sander Kondratjev">
+        <sql>
+            insert into sectors (name) values ('Manufacturing');
+            insert into sectors (name) values ('Construction materials');
+            insert into sectors (name) values ('Electronics and Optics');
+            insert into sectors (name) values ('Food and Beverage');
+            insert into sectors (name) values ('Bakery confectionery products');
+            insert into sectors (name) values ('Beverages');
+            insert into sectors (name) values ('Fish fish products ');
+            insert into sectors (name) values ('Meat meat products');
+            insert into sectors (name) values ('Milk dairy products ');
+            insert into sectors (name) values ('Other');
+            insert into sectors (name) values ('Sweets snack food');
+            insert into sectors (name) values ('Furniture');
+            insert into sectors (name) values ('Bathroom/sauna ');
+            insert into sectors (name) values ('Bedroom');
+            insert into sectors (name) values ('Children’s room ');
+            insert into sectors (name) values ('Kitchen ');
+            insert into sectors (name) values ('Living room ');
+            insert into sectors (name) values ('Office');
+            insert into sectors (name) values ('Other (Furniture)');
+            insert into sectors (name) values ('Outdoor ');
+            insert into sectors (name) values ('Project furniture');
+            insert into sectors (name) values ('Machinery');
+            insert into sectors (name) values ('Machinery components');
+            insert into sectors (name) values ('Machinery equipment/tools');
+            insert into sectors (name) values ('Manufacture of machinery ');
+            insert into sectors (name) values ('Maritime');
+            insert into sectors (name) values ('Aluminium and steel workboats ');
+            insert into sectors (name) values ('Boat/Yacht building');
+            insert into sectors (name) values ('Ship repair and conversion');
+            insert into sectors (name) values ('Metal structures');
+            insert into sectors (name) values ('Other');
+            insert into sectors (name) values ('Repair and maintenance service');
+            insert into sectors (name) values ('Metalworking');
+            insert into sectors (name) values ('Construction of metal structures');
+            insert into sectors (name) values ('Houses and buildings');
+            insert into sectors (name) values ('Metal products');
+            insert into sectors (name) values ('Metal works');
+            insert into sectors (name) values ('CNC-machining');
+            insert into sectors (name) values ('Forgings, Fasteners ');
+            insert into sectors (name) values ('Gas, Plasma, Laser cutting');
+            insert into sectors (name) values ('MIG, TIG, Aluminum welding');
+            insert into sectors (name) values ('Plastic and Rubber');
+            insert into sectors (name) values ('Packaging');
+            insert into sectors (name) values ('Plastic goods');
+            insert into sectors (name) values ('Plastic processing technology');
+            insert into sectors (name) values ('Blowing');
+            insert into sectors (name) values ('Moulding');
+            insert into sectors (name) values ('Plastics welding and processing');
+            insert into sectors (name) values ('Plastic profiles');
+            insert into sectors (name) values ('Printing ');
+            insert into sectors (name) values ('Advertising');
+            insert into sectors (name) values ('Book/Periodicals printing');
+            insert into sectors (name) values ('Labelling and packaging printing');
+            insert into sectors (name) values ('Textile and Clothing');
+            insert into sectors (name) values ('Clothing');
+            insert into sectors (name) values ('Textile');
+            insert into sectors (name) values ('Wood');
+            insert into sectors (name) values ('Other (Wood)');
+            insert into sectors (name) values ('Wooden building materials');
+            insert into sectors (name) values ('Wooden houses');
+            insert into sectors (name) values ('Other');
+            insert into sectors (name) values ('Creative industries');
+            insert into sectors (name) values ('Energy technology');
+            insert into sectors (name) values ('Environment');
+            insert into sectors (name) values ('Service');
+            insert into sectors (name) values ('Business services');
+            insert into sectors (name) values ('Engineering');
+            insert into sectors (name) values ('Information Technology and Telecommunications');
+            insert into sectors (name) values ('Data processing, Web portals, E-marketing');
+            insert into sectors (name) values ('Programming, Consultancy');
+            insert into sectors (name) values ('Software, Hardware');
+            insert into sectors (name) values ('Telecommunications');
+            insert into sectors (name) values ('Tourism');
+            insert into sectors (name) values ('Translation services');
+            insert into sectors (name) values ('Transport and Logistics');
+            insert into sectors (name) values ('Air');
+            insert into sectors (name) values ('Rail');
+            insert into sectors (name) values ('Road');
+            insert into sectors (name) values ('Water');
+        </sql>
+    </changeSet>
+</databaseChangeLog>
