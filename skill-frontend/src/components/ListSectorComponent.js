@@ -23,20 +23,26 @@ const ListSectorComponent = () => {
     const refreshPage = () => {
         navigate(0);
     }
-    const saveSector = (e) => {
+    const saveOrUpdateSector = (e) => {
         e.preventDefault();
 
         const sector = {name}
 
-        SectorService.createSector(sector).then((response) => {
-            navigate('/sectors');
-            refreshPage();
-        }).catch(error => {
-            console.log(error)
-
-            navigate('/sectors');
-            refreshPage();
-        })
+        if (id) {
+            SectorService.updateSector(id, sector).then((response) => {
+                navigate('/sectors');
+                refreshPage();
+            }).catch(error => {
+                console.log(error)
+            })
+        } else {
+            SectorService.createSector(sector).then((response) => {
+                navigate('/sectors');
+                refreshPage();
+            }).catch(error => {
+                console.log(error)
+            });
+        }
     }
 
     useEffect(() => {
@@ -104,7 +110,7 @@ const ListSectorComponent = () => {
                 </div>
             </div>
 
-            <button className="btn btn-success" onClick={(e) => saveSector(e)}>Submit</button>
+            <button className="btn btn-success" onClick={(e) => saveOrUpdateSector(e)}>Submit</button>
 
         </div>
     )
