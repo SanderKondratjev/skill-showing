@@ -63,6 +63,15 @@ const ListSectorComponent = () => {
         }
             return <h5 className= "text-center"> Add sector</h5>
     }
+
+    const [agree, setAgree] = useState(false);
+
+    const checkboxHandler = () => {
+        // if agree === true, it will be set to false
+        // if agree === false, it will be set to true
+        setAgree(!agree);
+        // Don't miss the exclamation mark
+    }
     return (
 
         <div className="container">
@@ -105,6 +114,10 @@ const ListSectorComponent = () => {
                                 }
                                 </tbody>
                             </table>
+                            <div>
+                                <input type="checkbox" id="agree" onChange={checkboxHandler} />
+                                <label className= "w-15 m-2" htmlFor="agree"> I agree to <b>terms and conditions</b></label>
+                            </div>
                         </div>
                     </form>
                 </div>
