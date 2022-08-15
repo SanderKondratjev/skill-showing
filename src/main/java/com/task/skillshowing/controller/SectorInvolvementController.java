@@ -35,4 +35,17 @@ public class SectorInvolvementController {
                 .orElseThrow(() -> new RuntimeException("Sector not exist with id:" + id));
         return ResponseEntity.ok(sector);
     }
+
+    // TODO change it later to filled data, currently just check that everything works
+    @PutMapping("{id}")
+    public ResponseEntity<Sector> updateSector(@PathVariable long id,@RequestBody Sector sectorDetails) {
+        Sector updateSector = sectorInvolvementRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Sector not exist with id:" + id));
+
+        updateSector.setName(sectorDetails.getName());
+
+        sectorInvolvementRepository.save(updateSector);
+
+        return ResponseEntity.ok(updateSector);
+    }
 }
