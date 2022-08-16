@@ -11,6 +11,7 @@
             </column>
             <column name="name" type="text"/>
             <column name="accepted_terms" type="boolean"/>
+            <column name="sector_id" type="bigint"/>
         </createTable>
     </changeSet>
     <changeSet id="2022-08-16 sectors" author="Sander Kondratjev">

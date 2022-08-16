@@ -24,4 +24,7 @@ public class User {
 
     @Column(name = "accepted_terms")
     private Boolean accepted_terms;
+
+    @Column(name = "sector_id")
+    private long sector_id;
 }
