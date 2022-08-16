@@ -5,6 +5,7 @@ import SectorService from "../services/SectorService";
 const ListSectorComponent = () => {
 
     const [sectors, setSectors] = useState([]);
+    const [users, setUsers] = useState([]);
     const {id} = useParams();
 
     useEffect(() => {
@@ -23,31 +24,22 @@ const ListSectorComponent = () => {
     const refreshPage = () => {
         navigate(0);
     }
-    const saveOrUpdateSector = (e) => {
+    const saveUser = (e) => {
         e.preventDefault();
 
-        const sector = {name}
+        const user = {name}
 
-        if (id) {
-            SectorService.updateSector(id, sector).then((response) => {
-                navigate('/sectors');
-                refreshPage();
-            }).catch(error => {
-                console.log(error)
-            })
-        } else {
-            SectorService.createSector(sector).then((response) => {
+            SectorService.createUser(user).then((response) => {
                 navigate('/sectors');
                 refreshPage();
             }).catch(error => {
                 console.log(error)
             });
         }
-    }
 
     useEffect(() => {
 
-        SectorService.getSectorById(id).then((response) =>{
+        SectorService.getUserById(id).then((response) =>{
             setName(response.data.name)
         }).catch(error => {
             console.log(error)
@@ -83,12 +75,13 @@ const ListSectorComponent = () => {
                             <label className="form-label"> Name :</label>
                             <input
                                 type="text"
-                                placeholder="Enter Sector name"
+                                placeholder="Enter Your Name"
                                 className="form-control"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             >
                             </input>
+                            <button className="btn btn-success" onClick={(e) => saveUser(e)}>Submit</button>
                             <h2 className="text-center"> List of Sectors </h2>
                             <table className="table table-bordered table-striped">
                                 <tbody>
@@ -120,7 +113,7 @@ const ListSectorComponent = () => {
                 </div>
             </div>
 
-            <button className="btn btn-success" onClick={(e) => saveOrUpdateSector(e)}>Submit</button>
+            <button className="btn btn-success" onClick={(e) => saveUser(e)}>Submit</button>
 
         </div>
     )
