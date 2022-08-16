@@ -9,16 +9,8 @@ class SectorService {
         return axios.get(SECTOR_BASE_REST_API_URL)
     }
 
-    createSector(sector) {
-        return axios.post(SECTOR_BASE_REST_API_URL, sector)
-    }
-
     getSectorById(sectorId) {
         return axios.get(SECTOR_BASE_REST_API_URL + '/' + sectorId);
-    }
-
-    updateSector(sectorId, sector) {
-        return axios.put(SECTOR_BASE_REST_API_URL + '/' + sectorId, sector);
     }
 
     getUserById(userId) {
