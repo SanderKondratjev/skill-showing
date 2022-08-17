@@ -5,6 +5,7 @@ import SectorService from "../services/SectorService";
 const SelectedSectorsComponent = () => {
 
     const [users, setUsers] = useState([]);
+    const [sectors, setSectors] = useState([]);
     useEffect(() => {
 
         SectorService.getAllUsers().then((response) => {
@@ -32,7 +33,14 @@ const SelectedSectorsComponent = () => {
                         user =>
                             <tr key = {user.id}>
                                 <td> {user.name} </td>
-                                <td> {user.sector_id} </td>
+                            </tr>
+                    )
+                }
+                {
+                    sectors.map(
+                        sector =>
+                            <tr key = {sector.id}>
+                                <td> {sector.name} </td>
                             </tr>
                     )
                 }
