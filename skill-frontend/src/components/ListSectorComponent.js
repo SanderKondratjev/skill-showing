@@ -8,7 +8,7 @@ const ListSectorComponent = () => {
     const {id} = useParams();
     const [name, setName] = useState('')
     const [accepted_terms, setAcceptedTerms] = useState(false)
-    const [sector_id, setSectorId] = useState(id)
+    const [sector_name, setSectorName] = useState(id)
     const navigate = useNavigate();
     const refreshPage = () => {
         navigate(0);
@@ -16,7 +16,7 @@ const ListSectorComponent = () => {
     const saveUser = (e) => {
         e.preventDefault();
 
-        const user = {name, accepted_terms, sector_id: sector_id}
+        const user = {name, accepted_terms, sector_name}
 
         SectorService.createUser(user).then((response) => {
             navigate('/selected-sectors');
@@ -57,7 +57,7 @@ const ListSectorComponent = () => {
                             </input>
                             <br/>
                             <label className="form-label"> List of Sectors:</label>
-                            <select className="form-select" multiple aria-label="multiple select">
+                            <select className="form-select" multiple aria-label="multiple select" onChange={(e) => setSectorName(e.target.value)}>
                                 {sectors.map((sector) => <option key={sector.id} value={sector.name}>{sector.name}</option>)}
                             </select>
                             <div>

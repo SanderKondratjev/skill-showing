@@ -27,4 +27,7 @@ public class User {
 
     @Column(name = "sector_id")
     private long sector_id;
+
+    @Column(name = "sector_name")
+    private String sector_name;
 }
