@@ -5,7 +5,6 @@ import SectorService from "../services/SectorService";
 const SelectedSectorsComponent = () => {
 
     const [users, setUsers] = useState([]);
-    const [sectors, setSectors] = useState([]);
     useEffect(() => {
 
         SectorService.getAllUsers().then((response) => {
@@ -14,7 +13,6 @@ const SelectedSectorsComponent = () => {
         }).catch(error => {
             console.log(error);
         })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 
@@ -33,14 +31,7 @@ const SelectedSectorsComponent = () => {
                         user =>
                             <tr key = {user.id}>
                                 <td> {user.name} </td>
-                            </tr>
-                    )
-                }
-                {
-                    sectors.map(
-                        sector =>
-                            <tr key = {sector.id}>
-                                <td> {sector.name} </td>
+                                <td> {user.sector_name} </td>
                             </tr>
                     )
                 }
