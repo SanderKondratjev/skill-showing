@@ -15,7 +15,7 @@ const ListSectorComponent = () => {
         }).catch(error => {
             console.log(error);
         })
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const [name, setName] = useState('')
@@ -26,7 +26,7 @@ const ListSectorComponent = () => {
     const saveUser = (e) => {
         e.preventDefault();
 
-        const user = {name, accepted_terms: true}
+        const user = {name, accepted_terms: true, sector_id: 1}
 
         SectorService.createUser(user).then((response) => {
             navigate('/users');
@@ -38,13 +38,13 @@ const ListSectorComponent = () => {
 
     // useEffect(() => {
     //
-    //     SectorService.getUserById(id).then((response) => {
+    //     SectorService.getSectorById(id).then((response) => {
     //         setName(response.data.name)
     //     }).catch(error => {
     //         console.log(error)
     //     })
-    //
-    // }, [id]);
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     return (
 
@@ -67,9 +67,14 @@ const ListSectorComponent = () => {
                             </input>
                             <br/>
                             <label className="form-label"> List of Sectors:</label>
-                            <select className="form-select">
+
+
+                            <select className="form-select" multiple aria-label="multiple select">
                                 {sectors.map((sector) => <option key={sector.id} value={sector.name}>{sector.name}</option>)}
                             </select>
+
+
+
                             <div>
                                 <input type="checkbox" required={true} onChange={()=>{}}/>
                                 <label className="w-15 m-2" htmlFor="agree"> I agree to <b>terms and
