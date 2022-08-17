@@ -20,6 +20,10 @@ class SectorService {
     createUser(user) {
         return axios.post(USER_BASE_REST_API_URL, user);
     }
+
+    getAllUsers() {
+        return axios.get(USER_BASE_REST_API_URL)
+    }
 }
 
 export default new SectorService();

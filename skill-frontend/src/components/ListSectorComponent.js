@@ -29,7 +29,7 @@ const ListSectorComponent = () => {
         const user = {name, accepted_terms: true, sector_id: 1}
 
         SectorService.createUser(user).then((response) => {
-            navigate('/users');
+            navigate('/selected-sectors');
             refreshPage();
         }).catch(error => {
             console.log(error)

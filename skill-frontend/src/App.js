@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import ListSectorComponent from "./components/ListSectorComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import FooterComponent from "./components/FooterComponent";
+import SelectedSectorsComponent from "./components/SelectedSectorsComponent";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/users" element={<ListSectorComponent />}></Route>
                     <Route path="/add-user" element={<ListSectorComponent />}></Route>
                     <Route path="/add-sector" element={<ListSectorComponent />}></Route>
+                    <Route path="/selected-sectors" element={<SelectedSectorsComponent />}></Route>
                 </Routes>
                 <FooterComponent />
             </BrowserRouter>
