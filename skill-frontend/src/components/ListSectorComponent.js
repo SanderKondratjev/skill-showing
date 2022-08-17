@@ -5,7 +5,7 @@ import SectorService from "../services/SectorService";
 const ListSectorComponent = () => {
 
     const [sectors, setSectors] = useState([]);
-    const {id} = useParams();
+    // const {id} = useParams();
 
     useEffect(() => {
 
@@ -26,7 +26,7 @@ const ListSectorComponent = () => {
     const saveUser = (e) => {
         e.preventDefault();
 
-        const user = {name}
+        const user = {name, accepted_terms: true}
 
         SectorService.createUser(user).then((response) => {
             navigate('/users');
@@ -36,21 +36,16 @@ const ListSectorComponent = () => {
         });
     }
 
-    useEffect(() => {
+    // useEffect(() => {
+    //
+    //     SectorService.getUserById(id).then((response) => {
+    //         setName(response.data.name)
+    //     }).catch(error => {
+    //         console.log(error)
+    //     })
+    //
+    // }, [id]);
 
-        SectorService.getUserById(id).then((response) => {
-            setName(response.data.name)
-        }).catch(error => {
-            console.log(error)
-        })
-
-    }, []);
-
-    const [agree, setAgree] = useState(false);
-
-    const checkboxHandler = () => {
-        setAgree(!agree);
-    }
     return (
 
         <div className="container">
@@ -62,6 +57,7 @@ const ListSectorComponent = () => {
                         <div className="form-group mb-2">
                             <label className="form-label"> Name :</label>
                             <input
+                                required={true}
                                 type="text"
                                 placeholder="Enter Your Name"
                                 className="form-control"
@@ -75,7 +71,7 @@ const ListSectorComponent = () => {
                                 {sectors.map((sector) => <option key={sector.id} value={sector.name}>{sector.name}</option>)}
                             </select>
                             <div>
-                                <input type="checkbox" id="agree" onChange={checkboxHandler}/>
+                                <input type="checkbox" required={true} onChange={()=>{}}/>
                                 <label className="w-15 m-2" htmlFor="agree"> I agree to <b>terms and
                                     conditions</b></label>
                             </div>
