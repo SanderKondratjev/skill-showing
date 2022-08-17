@@ -11,7 +11,6 @@ Project is created with:
 * Java
 * React
 * PostgreSQL
-* [Project help](HELP.md)
 	
 ## Setup
 Download PostgreSQL for database https://www.postgresql.org/
