@@ -4,19 +4,26 @@
 * [Setup](#setup)
 
 ## General info
-This project is simple Lorem ipsum dolor generator.
+This project is simple select different sectors' for created user application.
 	
 ## Technologies
 Project is created with:
-* Lorem version: 12.3
-* Ipsum version: 2.33
-* Ament library version: 999
+* Java
+* React
+* PostgreSQL
+* [Project help](HELP.md)
 	
 ## Setup
-To run this project, install it locally using npm:
+Download PostgreSQL for database https://www.postgresql.org/
 
+To run this project:
 ```
-$ cd ../lorem
+run SkillShowingApplication (src/main/java/com/task/skillshowing/SkillShowingApplication.java)
+```
+Open terminal, install it locally using npm
+```
+$ cd skill-frontend
 $ npm install
 $ npm start
 ```
+Have fun
