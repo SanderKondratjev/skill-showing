@@ -27,13 +27,6 @@ class SkillShowingApplicationTests {
     }
 
     @Test
-    void getStatusOkWhenGettingOneSector() throws Exception {
-        this.mockMvc
-                .perform(get("/api/v1/sectors/{id}", "1"))
-                .andDo(print()).andExpect(status().isOk());
-    }
-
-    @Test
     public void testUserName() {
         User user = new User();
         user.setName("User Name");

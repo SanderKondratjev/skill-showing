@@ -4,10 +4,9 @@ import SectorService from "../services/SectorService";
 
 const ListSectorComponent = () => {
 
-    const [sectors, getSectors] = useState([]);
-    const {id} = useParams();
     const [name, setName] = useState('')
     const [accepted_terms, setAcceptedTerms] = useState(false)
+    const {id} = useParams();
     const [sector_name, setSectorName] = useState(id)
     const navigate = useNavigate();
     const refreshPage = () => {
@@ -34,19 +33,19 @@ const ListSectorComponent = () => {
             })
         }
     }
-    useEffect(() => {
 
+    const [sectors, getSectors] = useState([]);
+
+    useEffect(() => {
         SectorService.getAllSectors().then((response) => {
             getSectors(response.data)
             console.log(response.data)
         }).catch(error => {
             console.log(error);
         })
-
     }, []);
 
     return (
-
         <div className="container">
             <br/><br/>
             <div className="card">

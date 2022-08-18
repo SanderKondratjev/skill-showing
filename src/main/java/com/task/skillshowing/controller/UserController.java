@@ -21,13 +21,6 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<User> getUserById(@PathVariable long id) {
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not exist with id:" + id));
-        return ResponseEntity.ok(user);
-    }
-
     @PostMapping
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);

@@ -5,8 +5,8 @@ import SectorService from "../services/SectorService";
 const SelectedSectorsComponent = () => {
 
     const [users, setUsers] = useState([]);
-    useEffect(() => {
 
+    useEffect(() => {
         SectorService.getAllUsers().then((response) => {
             setUsers(response.data)
             console.log(response.data)
@@ -17,24 +17,24 @@ const SelectedSectorsComponent = () => {
 
 
     return (
-        <div className = "container">
-            <h2 className = "text-center"> Selected Sectors </h2>
-            <Link to = "/" className = "btn btn-primary mb-2" > Back </Link>
+        <div className="container">
+            <h2 className="text-center"> Selected Sectors </h2>
+            <Link to="/" className="btn btn-primary mb-2"> Back </Link>
             <table className="table table-bordered table-striped">
                 <thead>
-                <th> Name </th>
-                <th> Selected sectors </th>
-                <th> Update </th>
+                <th> Name</th>
+                <th> Selected sectors</th>
+                <th> Update</th>
                 </thead>
                 <tbody>
                 {
                     users.map(
                         user =>
-                            <tr key = {user.id}>
+                            <tr key={user.id}>
                                 <td> {user.name} </td>
                                 <td> {user.sector_name} </td>
                                 <td>
-                                    <Link className="btn btn-info" to={`/users/${user.id}`} >Update</Link>
+                                    <Link className="btn btn-info" to={`/users/${user.id}`}>Update</Link>
                                 </td>
                             </tr>
                     )
