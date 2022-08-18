@@ -34,7 +34,7 @@ class SkillShowingApplicationTests {
     }
 
     @Test
-    public void testEmployeeName() {
+    public void testUserName() {
         User user = new User();
         user.setName("User Name");
         String userName = user.getName();
