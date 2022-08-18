@@ -14,9 +14,9 @@ Project is created with:
 * PostgreSQL
 	
 ## Setup
-```
-Download PostgreSQL for database https://www.postgresql.org/
 
+Download PostgreSQL for database https://www.postgresql.org/
+```
 Connect to database, username and password can be found in 
 src/main/resources/application.properties
 ```
