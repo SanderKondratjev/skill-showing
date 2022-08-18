@@ -27,16 +27,4 @@ public class SectorController {
                 .orElseThrow(() -> new RuntimeException("Sector not exist with id:" + id));
         return ResponseEntity.ok(sector);
     }
-
-    @PutMapping("{id}")
-    public ResponseEntity<Sector> updateSector(@PathVariable long id,@RequestBody Sector sectorDetails) {
-        Sector updateSector = sectorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Sector not exist with id:" + id));
-
-        updateSector.setName(sectorDetails.getName());
-
-        sectorRepository.save(updateSector);
-
-        return ResponseEntity.ok(updateSector);
-    }
 }
