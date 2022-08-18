@@ -13,17 +13,26 @@ const ListSectorComponent = () => {
     const refreshPage = () => {
         navigate(0);
     }
-    const saveUser = (e) => {
+    const saveOrUpdateUser = (e) => {
         e.preventDefault();
 
         const user = {name, accepted_terms, sector_name}
 
-        SectorService.createUser(user).then((response) => {
-            navigate('/selected-sectors');
-            refreshPage();
-        }).catch(error => {
-            console.log(error)
-        });
+        if (id) {
+            SectorService.updateUser(id, user).then((response) => {
+                navigate('/selected-sectors');
+                refreshPage();
+            }).catch(error => {
+                console.log(error)
+            })
+        } else {
+            SectorService.createUser(user).then((response) => {
+                navigate('/selected-sectors');
+                refreshPage();
+            }).catch(error => {
+                console.log(error)
+            })
+        }
     }
     useEffect(() => {
 
@@ -57,8 +66,10 @@ const ListSectorComponent = () => {
                             </input>
                             <br/>
                             <label className="form-label"> List of Sectors:</label>
-                            <select className="form-select" multiple aria-label="multiple select" onChange={(e) => setSectorName(e.target.value)}>
-                                {sectors.map((sector) => <option key={sector.id} value={sector.name}>{sector.name}</option>)}
+                            <select className="form-select" multiple aria-label="multiple select"
+                                    onChange={(e) => setSectorName(e.target.value)}>
+                                {sectors.map((sector) => <option key={sector.id}
+                                                                 value={sector.name}>{sector.name}</option>)}
                             </select>
                             <div>
                                 <input type="checkbox" required={true}
@@ -71,7 +82,7 @@ const ListSectorComponent = () => {
                 </div>
             </div>
             <br/>
-            <button className="btn btn-success" onClick={(e) => saveUser(e)}>Submit</button>
+            <button className="btn btn-success" onClick={(e) => saveOrUpdateUser(e)}>Submit</button>
         </div>
     )
 }

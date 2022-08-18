@@ -31,4 +31,17 @@ public class UserController {
     public User createUser(@RequestBody User user) {
         return userRepository.save(user);
     }
+
+    @PutMapping("{id}")
+    public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User userDetails) {
+        User updateUser = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Sector not exist with id:" + id));
+
+        updateUser.setName(userDetails.getName());
+        updateUser.setSector_name(userDetails.getSector_name());
+
+        userRepository.save(updateUser);
+
+        return ResponseEntity.ok(updateUser);
+    }
 }

@@ -24,6 +24,7 @@ const SelectedSectorsComponent = () => {
                 <thead>
                 <th> Name </th>
                 <th> Selected sectors </th>
+                <th> Update </th>
                 </thead>
                 <tbody>
                 {
@@ -32,6 +33,9 @@ const SelectedSectorsComponent = () => {
                             <tr key = {user.id}>
                                 <td> {user.name} </td>
                                 <td> {user.sector_name} </td>
+                                <td>
+                                    <Link className="btn btn-info" to={`/users/${user.id}`} >Update</Link>
+                                </td>
                             </tr>
                     )
                 }

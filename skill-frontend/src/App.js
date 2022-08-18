@@ -17,6 +17,7 @@ function App() {
                     <Route path="*" element={<ListSectorComponent />}></Route>
                     <Route path="/users" element={<ListSectorComponent />}></Route>
                     <Route path="/add-user" element={<ListSectorComponent />}></Route>
+                    <Route path="/users/:id" element={<ListSectorComponent />}></Route>
                     <Route path="/add-sector" element={<ListSectorComponent />}></Route>
                     <Route path="/selected-sectors" element={<SelectedSectorsComponent />}></Route>
                 </Routes>
