@@ -5,7 +5,7 @@
 * [Setup](#setup)
 
 ## General info
-This project is simple select different sectors' for created user application.
+This project is simple select different sectors' for created user application. agree to terms and conditions. Also update the already sent form.
 	
 ## Technologies
 Project is created with:
@@ -14,8 +14,12 @@ Project is created with:
 * PostgreSQL
 	
 ## Setup
+```
 Download PostgreSQL for database https://www.postgresql.org/
 
+Connect to database, username and password can be found in 
+src/main/resources/application.properties
+```
 To run this project:
 ```
 run SkillShowingApplication (src/main/java/com/task/skillshowing/SkillShowingApplication.java)
