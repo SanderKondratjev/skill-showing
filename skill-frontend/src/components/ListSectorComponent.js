@@ -17,7 +17,16 @@ const ListSectorComponent = () => {
 
         const user = {name, accepted_terms, sector_name}
 
-        if (id) {
+        if (user.name === '') {
+            alert('Name cannot be empty!')
+            console.log('Name cannot be empty')
+        } else if (user.sector_name === undefined) {
+            alert('You need to select sector!')
+            console.log('You need to select sector')
+        } else if (user.accepted_terms === false) {
+            alert('You need to accept the terms!')
+            console.log('You need to accept the terms')
+        } else if (id) {
             SectorService.updateUser(id, user).then((response) => {
                 navigate('/selected-sectors');
                 refreshPage();
@@ -65,7 +74,7 @@ const ListSectorComponent = () => {
                             </input>
                             <br/>
                             <label className="form-label"> List of Sectors:</label>
-                            <select className="form-select" multiple aria-label="multiple select"
+                            <select className="form-select" size="7" aria-label="size 3 select example"
                                     onChange={(e) => setSectorName(e.target.value)}>
                                 {sectors.map((sector) => <option key={sector.id}
                                                                  value={sector.name}>{sector.name}</option>)}

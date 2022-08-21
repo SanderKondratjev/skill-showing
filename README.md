@@ -1,4 +1,4 @@
-![Optional Text](/src/main/resources/static/images/sector-application.PNG)
+![Sectors app](/src/main/resources/static/images/sector-application.PNG)
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
